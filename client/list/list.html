@@ -1,0 +1,45 @@
+
+<template name="elementList">
+  <section id="list">
+    <h1>List</h1>
+    <p>List is an element containing a group of clickable items. Different
+      from a <b>bootstrap</b> list group, one item can contain several
+      horizontal components.
+    </p>
+    <section id="list-example">
+      <h2>Example</h2>
+      {{> TEList listExample}}
+      <div class="well">
+        <p><b>First Item</b> is clicked {{ItemOne}} times.</p>
+        <p><b>Second Item</b> is clicked {{ItemTwo}} times.</p>
+        <p><i class="fa fa-lg fa-bank"></i> is clicked {{IconTwo}} times.</p>
+        <p><i class="fa fa-lg fa-car"></i> is clicked {{ItemThreeIconOne}} times.</p>
+        <p><b>Cell Two</b> is clicked {{ItemThreeCellTwo}} times.</p>
+        <p>Row three, excluding <i class="fa fa-lg fa-car"></i> and <b>Cell Two</b>
+          is clicked {{ItemThree}} times.</p>
+        <p>The remaining area in the list is clicked {{List}} times.
+          (click <b>Item Four</b>)</p>
+      </div>
+      <p>The template name is <code>TEList</code></p>
+      <p>The parent template including the <code>TEList</code> looks like:</p>
+      {{> codeElementRemote id="list-example" lang="handlebars"}}
+      <p>The <code>list</code> is an object passed to the list element.
+      </p>
+      <p>For each list item, its horizontal component, and its icon, you can
+        specify the <code>id</code>, <code>class</code>, <code>href</code>,
+        and <code>action</code> to control its behavior.
+      </p>
+      <p>Note, if <code>title</code> or <code>description</code>
+        is specified in an item cell, the <code>icons</code> array is ignored.
+        However, <code>icons</code> can co-exist with <code>title</code> and
+        <code>description</code> in a list item. The <code>icons</code> are
+        aligned to the right of the text content.
+      </p>
+      <p>The <code>action</code> callback takes four arguments: the event,
+        the calling template, the jquery of the list item, and the jquery
+        of the closest <code>a</code> tag.
+      </p>
+      {{# codeElementLocal lang="coffeescript"}}{{listExampleObj}}{{/codeElementLocal}}
+    </section>
+  </section>
+</template>
