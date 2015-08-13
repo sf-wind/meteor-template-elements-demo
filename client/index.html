@@ -58,119 +58,19 @@
   </section>
 </template>
 
-<template name="elementHeader">
-  <section id="header">
-    <h1>Header Element</h1>
-    <p>The header element refers to the horizontal bar at the top of the screen.
-      It usually contains a title, a back button, some buttons or pull-down
-      menus on the right.
-    </p>
-    <section id="header-example">
-      <h2>Example</h2>
-      <p>Below is an example</p>
-      {{> TEHeader headerExample}}
-      <p>The template name is <code>TEHeader</code></p>
-      <p>The parent template including the <code>TEHeader</code> looks like:
-      </p>
-      {{> codeElementRemote id="header-example" lang="handlebars"}}
-      <p>The <code>header</code> is an object passed to the header element.
-        Below is an example of such an object.</p>
-      {{# codeElementLocal lang="coffeescript"}}{{headerExampleObj}}{{/codeElementLocal}}
-    </section>
-    <section id="header-inline-or-fixed">
-      <h2>Fixed or Inline</h2>
-      <p>By default, headers are fixed at the top of the page. One page can
-        have at most one fixed header, which overlays your other content.
-        You need to add <code>padding</code> to the top of the other content.
-      </p>
-      <p>A header can be inserted in the middle of a page by setting
-        <code>isInline</code> field of the object to <code>true</code>. Multiple
-        float headers can be inserted to one page.
-      </p>
-    </section>
-    <section id="header-fluid-or-fixed-width">
-      <h2>Fixed or Fluid</h2>
-      <p>When the header is fixed to the top of the page, the width of the
-        header spans the entire view by default. You can specify
-        <code>isFixedWidth</code> to <code>true</code> to make the header fixed
-        width.
-      </p>
-    </section>
-    <section id="header-back">
-      <h2>Back Button</h2>
-      <p>By default, the left most icon in a header is a back button
-        <code>&lt;</code>. Clicking this button always go back to the previous
-        page. If field <code>noBack</code> is set to <code>true</code>, the
-        back button is hidden.
-      </p>
-      <div class="header-example">
-        {{> TEHeader headerNoBack}}
-        {{# codeElementLocal lang="coffeescript"}}{{headerNoBackObj}}{{/codeElementLocal}}
-      </div>
-    </section>
-    <section id="header-options">
-      <h2>Options</h2>
-      <p>You can put a list of icons, buttons, or pull-down menus on the right
-        side of the header. They are specified in the <code>options</code> array.
-      </p>
-      <p>An option item object may contain the following fields:</p>
-      <ul>
-        <li><code>name</code> : the name to display on the header</li>
-        <li><code>icon</code> : the fontawesome icon to display on the header.
-          The icon does not include the <code>fa-</code> prefix. If both
-          <code>icon</code> and <code>name</code> are specified, the
-          <code>name</code> takes precedence.
-        </li>
-        <li><code>class</code> : the class to put to the item.</li>
-        <li><code>href</code> : the page to fetch if the item is clicked.</li>
-        <li><code>action</code> : a function to specify the action to take when
-          the item is clicked. The function takes two arguments, the first
-          argument is the event object, the second argument is the template
-          object. The function can optionally return
-          <code>false</code> so that the action is not propogated up in the
-          chain. It also prevents fetching a new page, even if the
-          <code>href</code> is specified.
-        </li>
-        <li><code>items</code> : this option item is a pull-down menu.
-          <code>items</code> is an array of pull-down menu selections, which
-          in term contains objects with fields <code>name</code>,
-          <code>icon</code>, <code>class</code>, <code>href</code>,
-          and <code>action</code>. When both <code>name</code> and
-          <code>icon</code> are specified, the icon appears to the left of
-          the name.
-        </li>
-      </ul>
-      <p>If the header is collapsable, which is usually the default if the
-        screen width is less than 758px, clicking anything in the expanded
-        header would collapse the header.
-      </p>
-      <p>Clicking anything in the pull-dowm menu item would slide up the menu,
-        even if the <code>action</code> returns false.</p>
-      <p>Below is an example of implementing the options.</p>
-      <div class="well">
-        <p>HeaderOptionsName = {{HeaderOptionsName}}</p>
-        <p>HeaderOptionsIcon = {{HeaderOptionsIcon}}</p>
-        <p>HeaderOptionsNameMenuItem2 = {{HeaderOptionsNameMenuItem2}}</p>
-        <p>HeaderOptionsIconMenuItem2 = {{HeaderOptionsIconMenuItem2}}</p>
-      </div>
-      <div class="header-example">
-        {{> TEHeader headerWithOptions}}
-        {{# codeElementLocal lang="coffeescript"}}{{headerWithOptionsObj}}{{/codeElementLocal}}
-      </div>
-    </section>
-  </section>
-</template>
+
+
 
 <template name="main">
   <div id="main">
     <div class="col-md-9">
       {{> introduction}}
       {{> installPackage}}
+      {{> elementList}}
       {{> elementHeader}}
-      <section id="list">
-      </section>
-      <section id="footer">
-      </section>
+      {{> elementFooter}}
+
+
     </div>
     <div class="col-md-3 scrollspy">
       <ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix">

@@ -131,7 +131,9 @@ if Meteor.isClient
   Template.elementHeader.helpers
     'headerExample' : ->
       header =
-        isInline : true                        # is the header fixed to the top?
+        id : "header-id"                      # id of the header
+        class : "header-class"                # class of the header
+        isInline : true                       # is the header fixed to the top?
         title : "Example Header"              # title of the header
         options : [                           # an array of options of the header
           {

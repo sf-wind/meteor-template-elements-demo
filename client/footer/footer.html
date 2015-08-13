@@ -1,0 +1,59 @@
+<template name="footerReactiveWell">
+
+</template>
+
+<template name="elementFooter">
+  <section id="footer">
+    <h1>Footer</h1>
+    <p>Footer is an element appear at the bottom of a page. This is a mobile
+      style footer, containing several horizontal components, each containing
+      an icon and a label.
+    </p>
+    <section id="footer-example">
+      <h2>Example</h2>
+      {{> TEFooter footerExample}}
+      <div class="well">
+        <p>clicking <i class="fa fa-icon fa-thumbs-o-up"></i> goes to footer <b>Example</b>.</p>
+        <p>clicking <i class="fa fa-icon fa-thumbs-o-down"></i> increments {{FooterItem2}} only.
+          </p>
+        <p>clicking <i class="fa fa-icon fa-tag"></i> increments {{FooterItem3}},
+          and then goes to footer <b>Example</b>.</p>
+      </div>
+      <p>The template name is <code>TEFooter</code>. It takes an object as argument.
+        The parent template is as follows:</p>
+      {{> codeElementRemote id="footer-example" lang="handlebars"}}
+      <p>The <code>footer</code> is an object, shown below.</p>
+      {{# codeElementLocal lang="coffeescript"}}{{footerExampleObj}}{{/codeElementLocal}}
+    </section>
+    <section id="footer-inline-or-fixed">
+      <h2>Fixed or Inline</h2>
+      <p>By default, footers are fixed at the bottom of the page. One page can have
+        at most one fixed footer, which overlays your other content. You need to
+        add <code>padding</code> to the bottom of the other content.
+      </p>
+      <p>A footer can be inserted in the middle of a page by setting
+        <code>isInline</code> field of the object to <code>true</code>. Multiple
+        inlined footers can be inserted to one page.
+      </p>
+      <p>Click the following button shows a footer fixed to the bottom of the page.</p>
+      <p><button class ="btn btn-default footer-toggle-fixed" type="submit">Toggle Fixed Footer</button></p>
+
+      {{#if showFixed}}
+        {{> TEFooter footerFixed}}
+        <div class="well">
+          <p>clicking <i class="fa fa-icon fa-thumbs-o-up"></i> goes to footer <b>Fixed or Inline</b>.</p>
+          <p>clicking <i class="fa fa-icon fa-thumbs-o-down"></i> increments {{FooterItem2}} only.
+            </p>
+          <p>clicking <i class="fa fa-icon fa-tag"></i> increments {{FooterItem3}},
+            and then goes to footer <b>Fixed or Inline</b>.</p>
+        </div>
+      {{/if}}
+    </section>
+    <section id="footer-fluid-or-fixed-width">
+      <h2>Fluid or Fixed Width</h2>
+      <p>When the footer is fixed to the bottom of the page, the width of the
+        footer spans the entire view by default. You can specify <code>isFixedWidth</code>
+        to <code>true</code> to make the footer fixed width.</p>
+    </section>
+  </section>
+</template>
