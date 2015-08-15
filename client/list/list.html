@@ -1,12 +1,14 @@
 
 <template name="elementList">
-  <section id="list">
+  <span class="anchor" id="list"></span>
+  <section>
     <h1>List</h1>
     <p>List is an element containing a group of clickable items. Different
       from a <b>bootstrap</b> list group, one item can contain several
       horizontal components.
     </p>
-    <section id="list-example">
+    <span class="anchor" id="list-example"></span>
+    <section>
       <h2>Example</h2>
       {{> TEList listExample}}
       <div class="well">
@@ -22,7 +24,7 @@
       </div>
       <p>The template name is <code>TEList</code></p>
       <p>The parent template including the <code>TEList</code> looks like:</p>
-      {{> codeElementRemote id="list-example" lang="handlebars"}}
+      {{> TECodeRemote filename="list-example.txt" lang="handlebars"}}
       <p>The <code>list</code> is an object passed to the list element.
       </p>
       <p>For each list item, its horizontal component, and its icon, you can
@@ -39,7 +41,18 @@
         the calling template, the jquery of the list item, and the jquery
         of the closest <code>a</code> tag.
       </p>
-      {{# codeElementLocal lang="coffeescript"}}{{listExampleObj}}{{/codeElementLocal}}
+      {{> TECodeLocal lang="coffeescript" content=listExampleObj}}
     </section>
   </section>
+</template>
+
+<template name="sideBarList">
+  <li>
+    <a href="#list">List</a>
+    <ul class="nav">
+      <li>
+        <a href="#list-example">Example</a>
+      </li>
+    </ul>
+  </li>
 </template>

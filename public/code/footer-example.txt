@@ -1,3 +1,3 @@
 <template name="parent-template">
-  {{TEFooter footer}}
+  {{> TEFooter footer}}
 </template>

@@ -1,0 +1,4 @@
+<template name="TECodeRemote">
+  <pre id="{{id}}" class="{{class}} {{lang}}">
+  </pre>
+</template>

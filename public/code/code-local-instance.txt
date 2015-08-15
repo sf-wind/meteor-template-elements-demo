@@ -1,0 +1,3 @@
+<template name="parentTemplate">
+  {{> TECodeLocal id="local-code" lang="handlebars" content=contentObj}}
+</template>

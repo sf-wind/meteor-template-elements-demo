@@ -1,21 +1,38 @@
 <template name="elementPagination">
-  <section id="pagination">
+  <span class="anchor" id="pagination"></span>
+  <section>
     <h1>Pagination</h1>
     <p>Contain pagination links for your site or app with the multi-page
       pagination component. It is built on top of the bootstrap pagination
       component.
     </p>
-    <section id="pagination-example">
+    <span class="anchor" id="pagination-example"></span>
+    <section>
       <h2>Example</h2>
       <p>The following is an example of pagination. You can click it
         to see how it works. </p>
       {{> TEPagination pagination}}
       <p>The template name is <code>TEPagination</code>. The parent template
         looks like:</p>
-      {{> codeElementRemote id="pagination-example" lang="handlebars"}}
+      {{> TECodeRemote filename="pagination-example.txt" lang="handlebars"}}
       <p>The <code>pagination</code> is an object passed to <code>TEPagination</code>.
       </p>
-      {{# codeElementLocal lang="coffeescript"}}{{paginationExampleObj}}{{/codeElementLocal}}
+      {{>TECodeLocal lang="coffeescript" content=paginationExampleObj}}
+      <p>The <code>action</code> callback method takes three arguments,
+        the event, the template, and the page number. Note the page number
+        starts from 1.
+      </p>
     </section>
   </section>
+</template>
+
+<template name="sideBarPagination">
+  <li>
+    <a href="#pagination">Pagination</a>
+    <ul class="nav">
+      <li>
+        <a href="#pagination-example">Example</a>
+      </li>
+    </ul>
+  </li>
 </template>

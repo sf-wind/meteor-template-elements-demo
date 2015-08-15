@@ -1,23 +1,26 @@
 <template name="elementHeader">
-  <section id="header">
+  <span class="anchor" id="header"></span>
+  <section>
     <h1>Header Element</h1>
     <p>The header element refers to the horizontal bar at the top of the screen.
       It usually contains a title, a back button, some buttons or pull-down
       menus on the right.
     </p>
-    <section id="header-example">
+    <span class="anchor" id="header-example"></span>
+    <section>
       <h2>Example</h2>
       <p>Below is an example</p>
       {{> TEHeader headerExample}}
       <p>The template name is <code>TEHeader</code></p>
       <p>The parent template including the <code>TEHeader</code> looks like:
       </p>
-      {{> codeElementRemote id="header-example" lang="handlebars"}}
+      {{> TECodeRemote filename="header-example.txt" lang="handlebars"}}
       <p>The <code>header</code> is an object passed to the header element.
         Below is an example of such an object.</p>
-      {{# codeElementLocal lang="coffeescript"}}{{headerExampleObj}}{{/codeElementLocal}}
+      {{> TECodeLocal lang="coffeescript" content=headerExampleObj}}
     </section>
-    <section id="header-inline-or-fixed">
+    <span class="anchor" id="header-inline-or-fixed"></span>
+    <section>
       <h2>Fixed or Inline</h2>
       <p>By default, headers are fixed at the top of the page. One page can
         have at most one fixed header, which overlays your other content.
@@ -28,7 +31,8 @@
         inlined headers can be inserted to one page.
       </p>
     </section>
-    <section id="header-fluid-or-fixed-width">
+    <span class="anchor" id="header-fluid-or-fixed-width"></span>
+    <section>
       <h2>Fluid or Fixed Width</h2>
       <p>When the header is fixed to the top of the page, the width of the
         header spans the entire view by default. You can specify
@@ -36,7 +40,8 @@
         width.
       </p>
     </section>
-    <section id="header-back">
+    <span class="anchor" id="header-back"></span>
+    <section>
       <h2>Back Button</h2>
       <p>By default, the left most icon in a header is a back button
         <code>&lt;</code>. Clicking this button always go back to the previous
@@ -45,10 +50,11 @@
       </p>
       <div class="header-example">
         {{> TEHeader headerNoBack}}
-        {{# codeElementLocal lang="coffeescript"}}{{headerNoBackObj}}{{/codeElementLocal}}
+        {{> TECodeLocal lang="coffeescript" content=headerNoBackObj}}
       </div>
     </section>
-    <section id="header-options">
+    <span class="anchor" id="header-options"></span>
+    <section>
       <h2>Options</h2>
       <p>You can put a list of icons, buttons, or pull-down menus on the right
         side of the header. They are specified in the <code>options</code> array.
@@ -98,8 +104,31 @@
       </div>
       <div class="header-example">
         {{> TEHeader headerWithOptions}}
-        {{# codeElementLocal lang="coffeescript"}}{{headerWithOptionsObj}}{{/codeElementLocal}}
+        {{> TECodeLocal lang="coffeescript" content=headerWithOptionsObj}}
       </div>
     </section>
   </section>
+</template>
+
+<template name="sideBarHeader">
+  <li>
+    <a href="#header">Header</a>
+    <ul class="nav">
+      <li>
+        <a href="#header-example">Example</a>
+      </li>
+      <li>
+        <a href="#header-inline-or-fixed">Fixed or Inline</a>
+      </li>
+      <li>
+        <a href="#header-fluid-or-fixed-width">Fluid or Fixed Width</a>
+      </li>
+      <li>
+        <a href="#header-back">Back Button</a>
+      </li>
+      <li>
+        <a href="#header-options">Options</a>
+      </li>
+    </ul>
+  </li>
 </template>

@@ -1,5 +1,5 @@
 #main {
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 h1 {
@@ -7,6 +7,16 @@ h1 {
   border-bottom : 1px solid #ccc
 }
 
+.anchor {
+  display : block;
+  height: 50px; /*same height as header*/
+  margin-top: -50px; /*same height as header*/
+  visibility: hidden;
+}
+
+.sidebar {
+  margin-top: 20px;
+}
 .header-example {
   .navbar {
     margin-bottom : 0;
@@ -18,4 +28,36 @@ h1 {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+}
+
+ul.affix li ul {
+  display: none;
+}
+
+ul.affix li.active ul {
+  display: block;
+}
+
+ul.affix > li > a {
+  padding : 5px 5px 5px 18px;
+  color : #767676;
+}
+ul.affix > li.active > a {
+  border-left : 2px solid #563d7c;
+  font-weight: 700;
+}
+
+ul.affix  ul.nav > li > a {
+  padding-top: 1px;
+  padding-bottom : 1px;
+  font-size : 12px;
+  font-weight: 400;
+  padding-left: 30px;
+  color : #767676;
+}
+ul.affix ul.nav > li.active > a {
+  padding-left : 28px;
+  font-weight : 500;
+  color : #563d7c;
+  border-left : 2px solid #563d7c;
 }

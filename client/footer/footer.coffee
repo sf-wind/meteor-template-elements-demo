@@ -79,6 +79,7 @@ if Meteor.isClient
     'footerFixed' : ->
       footer =
         class : "footer-class"              # class of the footer
+        isFixedWidth : true
         items : [                           # footer items
           {
             class : "item-1-class"          # class of one item

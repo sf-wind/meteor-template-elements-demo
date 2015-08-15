@@ -1,0 +1,84 @@
+<template name="elementCode">
+  <span class="anchor" id="code"></span>
+  <section>
+    <h1>Code</h1>
+    <p>If you want to display multiple lines of code, you can use the code
+      element. </p>
+    <span class="anchor" id="code-local"></span>
+    <section>
+      <h2>Local Code</h2>
+      <p>If the code as a string can be legally inserted to a Meteor template,
+        you can use the <code>TECodeLocal</code> element to insert code.
+      </p>
+      <p>The template that insert code looks like below:</p>
+      {{> TECodeRemote filename="code-local-instance.txt" lang="handlebars"}}
+      <p>The <code>TECodeLocal</code> takes the following arguments:</p>
+      <ul>
+        <li><code>id</code> : The id of the code block.</li>
+        <li><code>class</code> : The class of the code block.</li>
+        <li><code>content</code> : The content string of the code block. It is
+          usually a field passed from javascript helper function.
+        </li>
+        <li><code>noHighlight</code> : If set to <code>true</code>, do not highlight the code block. Details see below. </li>
+        <li><code>lang</code> : The language of the code block. Used to highlight the code. </li>
+      </ul>
+      <p>An example <code>content</code> field is as follows:</p>
+      {{> TECodeLocal lang="coffeescript" content=codeLocalObj}}
+      <p>By default, the code checks whether the <a href="https://highlightjs.org/">hightlight.js</a>
+        is installed.  If so, it uses the hightlight.js to highlight the fetched block. You can
+        specify the highlight language in the <code>lang</code> argument. When
+        <code>noHighlight</code> is <code>true</code>, the code is not highlighted.
+      </p>
+    </section>
+    <span class="anchor" id="code-remote"></span>
+    <section>
+      <h2>Remote Code</h2>
+      <p>Due to the nature of Meteor, some code you want to display may
+        be illegal to be inserted to a template. For example, it is illegal
+        to display a <code>template</code> as code in another template.
+      </p>
+      <p>To include such code, you save the code you want to display in the server
+        as a plain text file. Then you can use <code>TECodeRemote</code> element
+        to fetches the code you want to display from the server as an ajax request after the
+        template is already rendered. It uses the mechanism described in this post:
+        <a href="http://www.meteormade.com/display-source-code-in-meteor-applications">Display source code in meteor applications</a>.
+      </p>
+      <p>Below is an example of the code.</p>
+      {{> TECodeRemote id="remote-code" filename="code-remote.txt" lang="handlebars"}}
+      <p>You can use the following to insert the code in the parent template.</p>
+      {{> TECodeRemote filename="code-remote-instance.txt" lang="handlebars"}}
+      <p>The <code>TECodeRemote</code> takes the following arguments:</p>
+      <ul>
+        <li><code>id</code> : The id of the code block.</li>
+        <li><code>class</code> : The class of the code block.</li>
+        <li><code>filename</code> : The filename in the server the code should fetch.
+          If not provided, but an id is provided, it uses the name: "id".txt. </li>
+        <li><code>dir</code> : The directory name in the server the code should fetch.
+          If not provided, the default directory is <code>/code/</code>. You need to
+          put the files to the <code>public/&lt;dir&gt;</code> in the Meteor project. 
+        </li>
+        <li><code>noHighlight</code> : If set to <code>true</code>, do not highlight the code block. Details see below. </li>
+        <li><code>lang</code> : The language of the code block. Used to highlight the code. </li>
+      </ul>
+      <p>By default, the code checks whether the <a href="https://highlightjs.org/">hightlight.js</a>
+        is installed.  If so, it uses the hightlight.js to highlight the fetched block. You can
+        specify the highlight language in the <code>lang</code> argument. When
+        <code>noHighlight</code> is <code>true</code>, the code is not highlighted.
+      </p>
+    </section>
+  </section>
+</template>
+
+<template name="sideBarCode">
+  <li>
+    <a href='#code'>Code</a>
+    <ul class="nav">
+      <li>
+        <a href="#code-local">Local Code</a>
+      </li>
+      <li>
+        <a href="#code-remote">Remote Code</a>
+      </li>
+    </ul>
+  </li>
+</template>

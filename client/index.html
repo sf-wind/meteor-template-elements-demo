@@ -2,7 +2,7 @@
     <title>Template Elements Demo</title>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 </head>
-<body>
+<body data-spy="scroll" data-target=".scrollspy">
   <div class="container">
   {{> header}}
   {{> main}}
@@ -14,17 +14,9 @@
   {{> TEHeader header}}
 </template>
 
-<template name="codeElementRemote">
-  <pre id="{{id}}" class="{{lang}}">
-  </pre>
-</template>
-
-<template name="codeElementLocal">
-  <pre id="{{id}}" class="{{lang}}">{{> Template.contentBlock}}</pre>
-</template>
-
 <template name="introduction">
-  <section id="introduction">
+  <span class="anchor" id="introduction"></span>
+  <section>
     <h1>Introduction</h1>
     <p>As I write a Meteor app, I often find that I use templates of similar
       structure in different pages. The text of the templates are often unique
@@ -50,7 +42,8 @@
 </template>
 
 <template name="installPackage">
-  <section id="install-package">
+  <span class="anchor" id="install-package"></span>
+  <section>
     <h1>Install Package</h1>
     <p>The Meteor package can be found in <a href="http://atmospherejs.com">
       atmospherejs.com</a>.
@@ -62,7 +55,7 @@
 
 
 <template name="main">
-  <div id="main">
+  <div id="main" class="clearfix">
     <div class="col-md-9">
       {{> introduction}}
       {{> installPackage}}
@@ -70,19 +63,21 @@
       {{> elementHeader}}
       {{> elementFooter}}
       {{> elementPagination}}
-
+      {{> elementCode}}
     </div>
-    <div class="col-md-3 scrollspy">
+    <div class="col-md-3 scrollspy sidebar">
       <ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix">
         <li>
-          <a href="#header">Header</a>
+          <a href="#introduction">Introduction</a>
         </li>
         <li>
-          <a href="#list">List</a>
+          <a href="#install-package">Install Package</a>
         </li>
-        <li>
-          <a href="#footer">Footer</a>
-        </li>
+        {{> sideBarList}}
+        {{> sideBarHeader}}
+        {{> sideBarFooter}}
+        {{> sideBarPagination}}
+        {{> sideBarCode}}
       </ul>
     </div>
   </div>

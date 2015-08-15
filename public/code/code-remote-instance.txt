@@ -1,0 +1,3 @@
+<template name="parent-template">
+  {{> TECodeRemote filename="code-remote.txt" lang="handlebars"}}
+</template>

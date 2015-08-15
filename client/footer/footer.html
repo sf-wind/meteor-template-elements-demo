@@ -1,15 +1,13 @@
-<template name="footerReactiveWell">
-
-</template>
-
 <template name="elementFooter">
-  <section id="footer">
+  <span class="anchor" id="footer"></span>
+  <section>
     <h1>Footer</h1>
     <p>Footer is an element appear at the bottom of a page. This is a mobile
       style footer, containing several horizontal components, each containing
       an icon and a label.
     </p>
-    <section id="footer-example">
+    <span class="anchor" id="footer-example"></span>
+    <section>
       <h2>Example</h2>
       {{> TEFooter footerExample}}
       <div class="well">
@@ -21,11 +19,12 @@
       </div>
       <p>The template name is <code>TEFooter</code>. It takes an object as argument.
         The parent template is as follows:</p>
-      {{> codeElementRemote id="footer-example" lang="handlebars"}}
+      {{> TECodeRemote filename="footer-example.txt" lang="handlebars"}}
       <p>The <code>footer</code> is an object, shown below.</p>
-      {{# codeElementLocal lang="coffeescript"}}{{footerExampleObj}}{{/codeElementLocal}}
+      {{> TECodeLocal lang="coffeescript" content=footerExampleObj}}
     </section>
-    <section id="footer-inline-or-fixed">
+    <span class="anchor" id="footer-inline-or-fixed"></span>
+    <section>
       <h2>Fixed or Inline</h2>
       <p>By default, footers are fixed at the bottom of the page. One page can have
         at most one fixed footer, which overlays your other content. You need to
@@ -49,11 +48,29 @@
         </div>
       {{/if}}
     </section>
-    <section id="footer-fluid-or-fixed-width">
+    <span class="anchor" id="footer-fluid-or-fixed-width"></span>
+    <section>
       <h2>Fluid or Fixed Width</h2>
       <p>When the footer is fixed to the bottom of the page, the width of the
         footer spans the entire view by default. You can specify <code>isFixedWidth</code>
         to <code>true</code> to make the footer fixed width.</p>
     </section>
   </section>
+</template>
+
+<template name="sideBarFooter">
+  <li>
+    <a href="#footer">Footer</a>
+    <ul class="nav">
+      <li>
+        <a href="#footer-example">Example</a>
+      </li>
+      <li>
+        <a href="#footer-inline-or-fixed">Fixed or Inline</a>
+      </li>
+      <li>
+        <a href="#footer-fluid-or-fixed-width">Fluid or Fixed Width</a>
+      </li>
+    </ul>
+  </li>
 </template>
