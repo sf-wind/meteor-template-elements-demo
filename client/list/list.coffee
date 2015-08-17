@@ -2,7 +2,7 @@ listExampleObj = '''
 list =
   id : "id-of-the-list"                     # id for the list
   class : "class-of-the-list"               # class for the list
-  action : (e, tmpl) ->                     # action to trigger when
+  action : (e, tmpl, $row, $a) ->           # action to trigger when
     val = tmpl.List.get()                   # no inner action is triggered
     tmpl.List.set(val+1)
     false                                   # do not propogate the click event up in the chain
@@ -12,7 +12,7 @@ list =
       description : "First description"     # description field without class
       href : '#list-example'                # link
       id : 'id-for-first-item'              # id for the item
-      action : (e, tmpl) ->                 # action to take when clicked
+      action : (e, tmpl, $row, $a) ->       # action to take when clicked
         val = tmpl.ItemOne.get()
         tmpl.ItemOne.set(val+1)
         false
@@ -25,7 +25,7 @@ list =
         name : "Second description"         # content of the description
         class : "second-item-description-class"   # class of the description
       id : "second-item-id"                 # id of the item
-      action : (e, tmpl) ->                 # action to take when clicked
+      action : (e, tmpl, $row, $a) ->       # action to take when clicked
         val = tmpl.ItemTwo.get()
         tmpl.ItemTwo.set(val+1)
         false
@@ -40,7 +40,7 @@ list =
           id : "icon-2-id"                  # id of the icon
           class : "icon-2-class"            # class of the icon
           icon : "bank"                     # fontawesome icon
-          action : (e, tmpl)->              # action to take when clicked
+          action : (e, tmpl, $row, $a)->    # action to take when clicked
             val = tmpl.IconTwo.get()
             tmpl.IconTwo.set(val+1)
             false
@@ -61,7 +61,7 @@ list =
               id : "first-icon"             # id for the icon
               class : "first-icon-class"    # class for the icon
               icon : "car"                  # fontawesome icon
-              action : (e, tmpl)->          # action to take when the icon is clicked
+              action : (e, tmpl, $row, $a)->    # action to take when the icon is clicked
                 val = tmpl.ItemThreeIconOne.get()
                 tmpl.ItemThreeIconOne.set(val+1)
                 false
@@ -82,7 +82,7 @@ list =
         {
           title : "Cell Two"                # title of one horizontal component
           description : "Cell two description" # description
-          action : (e, tmpl)->              # action to trigger when clicked
+          action : (e, tmpl, $row, $a)->    # action to trigger when clicked
             val = tmpl.ItemThreeCellTwo.get()
             tmpl.ItemThreeCellTwo.set(val+1)
             false
@@ -123,7 +123,7 @@ if Meteor.isClient
       list =
         id : "id-of-the-list"                     # id for the list
         class : "class-of-the-list"               # class for the list
-        action : (e, tmpl) ->                     # action to trigger when
+        action : (e, tmpl, $row, $a) ->           # action to trigger when
           val = tmpl.List.get()                   # no inner action is triggered
           tmpl.List.set(val+1)
           false                                   # do not propogate the click event up in the chain
@@ -133,7 +133,7 @@ if Meteor.isClient
             description : "First description"     # description field without class
             href : '#list-example'                # link
             id : 'id-for-first-item'              # id for the item
-            action : (e, tmpl) ->                 # action to take when clicked
+            action : (e, tmpl, $row, $a) ->                 # action to take when clicked
               val = tmpl.ItemOne.get()
               tmpl.ItemOne.set(val+1)
               false
@@ -146,7 +146,7 @@ if Meteor.isClient
               name : "Second description"         # content of the description
               class : "second-item-description-class"   # class of the description
             id : "second-item-id"                 # id of the item
-            action : (e, tmpl) ->                 # action to take when clicked
+            action : (e, tmpl, $row, $a) ->       # action to take when clicked
               val = tmpl.ItemTwo.get()
               tmpl.ItemTwo.set(val+1)
               false
@@ -161,7 +161,7 @@ if Meteor.isClient
                 id : "icon-2-id"                  # id of the icon
                 class : "icon-2-class"            # class of the icon
                 icon : "bank"                     # fontawesome icon
-                action : (e, tmpl)->              # action to take when clicked
+                action : (e, tmpl, $row, $a)->    # action to take when clicked
                   val = tmpl.IconTwo.get()
                   tmpl.IconTwo.set(val+1)
                   false
@@ -170,7 +170,7 @@ if Meteor.isClient
           }
           {                                       # multiple component list item
             class : "third-item-class"            # class for the list item
-            action : (e, tmpl)->                  # action to take when the item
+            action : (e, tmpl, $row, $a)->        # action to take when the item
               val = tmpl.ItemThree.get()          # is clicked, and no inner action
               tmpl.ItemThree.set(val+1)           # is defined
               false
@@ -182,7 +182,7 @@ if Meteor.isClient
                     id : "first-icon"             # id for the icon
                     class : "first-icon-class"    # class for the icon
                     icon : "car"                  # fontawesome icon
-                    action : (e, tmpl)->          # action to take when the icon is clicked
+                    action : (e, tmpl, $row, $a)->    # action to take when the icon is clicked
                       val = tmpl.ItemThreeIconOne.get()
                       tmpl.ItemThreeIconOne.set(val+1)
                       false
@@ -203,7 +203,7 @@ if Meteor.isClient
               {
                 title : "Cell Two"                # title of one horizontal component
                 description : "Cell two description" # description
-                action : (e, tmpl)->              # action to trigger when clicked
+                action : (e, tmpl, $row, $a)->    # action to trigger when clicked
                   val = tmpl.ItemThreeCellTwo.get()
                   tmpl.ItemThreeCellTwo.set(val+1)
                   false

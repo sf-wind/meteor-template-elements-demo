@@ -31,7 +31,7 @@ header =
           id : "menu-id-2"              # another pull-dowm menu item id
           icon : "leaf"                 # pull-down menu item icon
           name : "Item 2"               # pull-down menu item name
-          href : "#header-back"          # pull-dwon menu item action, if present
+          href : "#header-example"      # pull-dwon menu item action, if present
         }
       ]
     }
@@ -164,7 +164,7 @@ if Meteor.isClient
                 id : "menu-id-2"              # another pull-dowm menu item id
                 icon : "leaf"                 # pull-down menu item icon
                 name : "Item 2"               # pull-down menu item name
-                href : "#header-back"          # pull-dwon menu item action, if present
+                href : "#header-example"      # pull-dwon menu item action, if present
               }
             ]
           }

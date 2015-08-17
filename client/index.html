@@ -3,11 +3,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 </head>
 <body data-spy="scroll" data-target=".scrollspy">
-  <div class="container">
   {{> header}}
   {{> main}}
   {{> footer}}
-  </div>
+  <a href="https://github.com/sf-wind/meteor-template-elements" target="_blank" class="visible-lg-block">
+    <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;"
+      src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67"
+      alt="Fork me on GitHub"
+      data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png">
+  </a>
 </body>
 
 <template name="header">
@@ -18,22 +22,22 @@
   <span class="anchor" id="introduction"></span>
   <section>
     <h1>Introduction</h1>
-    <p>As I write a Meteor app, I often find that I use templates of similar
+    <p>As I write Meteor apps, I often find that I use templates of similar
       structure in different pages. The text of the templates are often unique
       in each page, and maybe the triggered event actions are different.
       However, because of the difference, I have to write different templates,
       and then create similar template helpers and events. That seems quite
       an overwhelming task.
     </p>
-    <p>After some exploration, I end up writing a more general template, and
-      then pass data to the template to control the structure, the content
+    <p>After some exploration, I end up writing more general templates, and
+      then pass data to the templates to control the structure, the content
       to show, and the actions on an event. It is often much simplier to write
-      an object to specify the content to show than writing an html template.
+      javascript objects to specify the content to show than to write html templates.
     </p>
     <p>I've extracted the most commonly used templates in a package, and hope
       you can use the package to simplify your desgin. Currently, the package
-      is designed on top of the <b>bootstrap</b> and <b>fontawesome</b> packages.
-      You need to include those two packages in your app to see the benefit.
+      is designed to be used together with the <b>bootstrap</b> and <b>fontawesome</b> packages.
+      You need to include those two packages in your app to get the benefit.
     </p>
     <p>Below I show some of the most commonly templates I use in my apps.
       I hope you can use them in your app!
@@ -46,16 +50,22 @@
   <section>
     <h1>Install Package</h1>
     <p>The Meteor package can be found in <a href="http://atmospherejs.com">
-      atmospherejs.com</a>.
+      atmospherejs</a>.
+    </p>
+    <p>To install the package, type the following command:
+    </p>
+    <pre>meteor add fsun:template-elements</pre>
+    <p>The package is in <a href="https://github.com/sf-wind/meteor-template-elements">github</a>
+      under MIT license. Fork it and add the elements you think useful!
+    </p>
+    <p>This demo site is also in <a href="https://github.com/sf-wind/meteor-template-elements-demo">github</a>.
+      Add a demo to the page when you add new elements to the packages.
     </p>
   </section>
 </template>
 
-
-
-
 <template name="main">
-  <div id="main" class="clearfix">
+  <div id="main" class="clearfix container">
     <div class="col-md-9">
       {{> introduction}}
       {{> installPackage}}
@@ -84,5 +94,34 @@
 </template>
 
 <template name="footer">
-
+  <div id="page-footer" class="clearfix container-fluid">
+    <div class="container">
+      <div class="col-md-6">
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://github.com/sf-wind/meteor-template-elements">
+              Fork the package
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/sf-wind/meteor-template-elements-demo">
+              Fork the demo project
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://github.com/sf-wind/meteor-template-elements/blob/master/LICENSE">
+              Package licensed under MIT</a>
+          </li>
+          <li>
+            <a href="https://github.com/sf-wind/meteor-template-elements/blob/master/LICENSE">
+              Site licensed under MIT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>
