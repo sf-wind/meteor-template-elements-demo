@@ -13,14 +13,14 @@ meteor add fsun:template-elements
 # Set up the demo site
 * Clone the github project.
 * Install meteor packages the site depends on:
-** coffeescript
-** fortawesome:fontawesome
-** fsun:template-elements
-** less
-** nemo64:bootstrap
-** reactive-var
-** simple:highlight.js
+ * coffeescript
+ * fortawesome:fontawesome
+ * fsun:template-elements
+ * less
+ * nemo64:bootstrap
+ * reactive-var
+ * simple:highlight.js
 * run meteor
 
 # License
-This site is provided under MIT license. 
+This site is provided under MIT license.
