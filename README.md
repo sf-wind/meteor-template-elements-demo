@@ -2,7 +2,7 @@
 This is the source code of a demo site for meteor package
 [fsun:template-elements](https://github.com/sf-wind/meteor-template-elements).
 
-The demo site can be found at: http://template-elements.meteor.com/
+The demo site can be found at: https://atmospherejs.com/fsun/template-elements
 
 # Install the package
 Use the following command to add the package to your app:
